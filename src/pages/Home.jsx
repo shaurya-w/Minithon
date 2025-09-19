@@ -1,11 +1,21 @@
+/*import React from "react";
+import SplitText from "../components/SplitText";
+const Home = () => (
+  <section id="home" style={{ ...styles.section }}>
+    <h1><SplitText>Eco</SplitText> </h1>
+  </section>
+);*/
 import React from "react";
+import SplitText from "../components/SplitText";
 
 const Home = () => (
   <section id="home" style={{ ...styles.section }}>
-    <h1>Home</h1>
-    <p>Welcome to the homepage.</p>
+    
   </section>
 );
+
+export default Home;
+
 
 const styles = {
   section: {
@@ -18,4 +28,3 @@ const styles = {
   },
 };
 
-export default Home;

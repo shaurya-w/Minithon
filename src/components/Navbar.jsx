@@ -63,7 +63,7 @@ const styles = {
   },
   progressBar: {
     height: "2px",
-    background: "linear-gradient(135deg, #a855f7, #9333ea)",
+    background: "linear-gradient(135deg, #22c55e, #16a34a)",
     transformOrigin: "0%",
   },
 };
