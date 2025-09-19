@@ -1,4 +1,4 @@
-{
+export const questions = {
   "waste": [
     {
       "question": "How often do you recycle household waste?",
