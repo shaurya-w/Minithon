@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Bike, Lightbulb } from "lucide-react";
 
+
+
 const ActionPlan = () => {
   const actions = [
     {
