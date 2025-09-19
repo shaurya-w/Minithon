@@ -2,42 +2,48 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ActionPlan from "./ActionPlan";
 
-const ResultsSection = ({ score }) => {
+const ResultsSection = () => {
   const [displayScore, setDisplayScore] = useState(0);
   const [level, setLevel] = useState("");
   const [color, setColor] = useState("");
   const [tips, setTips] = useState([]);
+  const [finalScore, setFinalScore] = useState(0);
 
-  // ✅ Scroll to top on mount
+  // ✅ Scroll to top on mount & fetch result
   useEffect(() => {
     window.scrollTo(0, 0);
+    const savedResult = JSON.parse(localStorage.getItem("quizResult"));
+    if (savedResult) {
+      console.log("🔥 FINAL RESULT ON RESULTS PAGE 🔥", savedResult);
+      setFinalScore(savedResult.totalScore);
+    }
   }, []);
 
   // ✅ Animate score counting up
   useEffect(() => {
-    const duration = 1500; // 1.5s
+    if (finalScore === 0) return;
+    const duration = 1500;
     const startTime = performance.now();
 
     const animate = (time) => {
       const progress = Math.min((time - startTime) / duration, 1);
-      const current = Math.floor(progress * score);
-      setDisplayScore(current);
+      setDisplayScore(Math.floor(progress * finalScore));
       if (progress < 1) requestAnimationFrame(animate);
     };
 
     requestAnimationFrame(animate);
-  }, [score]);
+  }, [finalScore]);
 
   // ✅ Determine impact level & tips
   useEffect(() => {
-    if (score <= 30) {
+    if (finalScore <= 30) {
       setLevel("Low Footprint 🌱");
       setColor("stroke-green-400 text-green-400");
       setTips([
         "Great job! Keep cycling or walking when possible.",
         "Share your practices with friends to inspire them.",
       ]);
-    } else if (score <= 60) {
+    } else if (finalScore <= 60) {
       setLevel("Moderate Footprint 🌍");
       setColor("stroke-yellow-400 text-yellow-400");
       setTips([
@@ -54,9 +60,8 @@ const ResultsSection = ({ score }) => {
         "Adopt a more plant-based diet.",
       ]);
     }
-  }, [score]);
+  }, [finalScore]);
 
-  // Circle properties
   const radius = 80;
   const circumference = 2 * Math.PI * radius;
   const progress = (displayScore / 100) * circumference;
@@ -80,7 +85,7 @@ const ResultsSection = ({ score }) => {
             r={radius}
             strokeWidth="12"
             fill="transparent"
-            className={color.split(" ")[0]} // stroke color
+            className={color.split(" ")[0]}
             strokeDasharray={circumference}
             strokeDashoffset={circumference - progress}
             strokeLinecap="round"
@@ -101,7 +106,7 @@ const ResultsSection = ({ score }) => {
         {level}
       </motion.h2>
 
-      {/* Tips Section */}
+      {/* Tips */}
       <div className="grid gap-4 max-w-md w-full">
         {tips.map((tip, index) => (
           <motion.div
@@ -116,7 +121,6 @@ const ResultsSection = ({ score }) => {
         ))}
       </div>
 
-      {/* ActionPlan */}
       <ActionPlan />
     </div>
   );

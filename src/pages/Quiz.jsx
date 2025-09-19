@@ -6,7 +6,7 @@ import { questions } from "../data/questions";
 
 const Quiz = () => {
   const [answers, setAnswers] = useState({});
-  const navigate = useNavigate(); // <-- useNavigate hook
+  const navigate = useNavigate();
 
   const handleSelect = (category, qIndex, optionIndex) => {
     setAnswers((prev) => ({
@@ -19,6 +19,7 @@ const Quiz = () => {
     const categoryScores = {};
     let totalScore = 0;
 
+    // ✅ Calculate scores
     Object.entries(questions).forEach(([category, qs]) => {
       categoryScores[category] = 0;
       qs.forEach((_, qIndex) => {
@@ -33,10 +34,9 @@ const Quiz = () => {
 
     const result = { totalScore, categoryScores };
     localStorage.setItem("quizResult", JSON.stringify(result));
-    console.log("Saved Result:", result);
 
-    // Navigate to results page
-    navigate("/results"); 
+    // 👉 Don't rely on console here (page will unmount)
+    navigate("/results");
   };
 
   return (
@@ -66,7 +66,6 @@ const Quiz = () => {
 
       <div className="mt-8">
         <Button onClick={handleSubmit} name="Submit" />
-
       </div>
     </section>
   );
