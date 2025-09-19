@@ -1,30 +1,30 @@
-/*import React from "react";
-import SplitText from "../components/SplitText";
-const Home = () => (
-  <section id="home" style={{ ...styles.section }}>
-    <h1><SplitText>Eco</SplitText> </h1>
-  </section>
-);*/
 import React from "react";
-import SplitText from "../components/SplitText";
+import Spline from "@splinetool/react-spline";
+import About from "./About";
+import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => (
-  <section id="home" style={{ ...styles.section }}>
-    
-  </section>
-);
+export default function Home() {
+  const navigate = useNavigate(); // ✅ must be inside the component
 
-export default Home;
+  const goToQuiz = () => {
+    navigate("/quiz"); // ✅ navigate to the Quiz page
+  };
 
+  return (
+    <section
+      id="home"
+      className="min-h-screen w-full px-4 py-10 text-white bg-cover bg-center"
+    >
+      <About />
 
-const styles = {
-  section: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    color: "white",
-  },
-};
+      <div className="w-full h-[600px]">
+        <Spline scene="https://prod.spline.design/bOvpJV58xmvY03-F/scene.splinecode" />
+      </div>
 
+      <div className="mt-8">
+        <Button onClick={goToQuiz} name="Take a quiz!" /> {/* ✅ pass the handler */}
+      </div>
+    </section>
+  );
+}

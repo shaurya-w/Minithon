@@ -1,15 +1,20 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import ActionPlan from "./ActionPlan";
+
 const ResultsSection = ({ score }) => {
   const [displayScore, setDisplayScore] = useState(0);
   const [level, setLevel] = useState("");
   const [color, setColor] = useState("");
   const [tips, setTips] = useState([]);
 
-  // Animate score counting up
+  // ✅ Scroll to top on mount
   useEffect(() => {
-    let start = 0;
+    window.scrollTo(0, 0);
+  }, []);
+
+  // ✅ Animate score counting up
+  useEffect(() => {
     const duration = 1500; // 1.5s
     const startTime = performance.now();
 
@@ -23,7 +28,7 @@ const ResultsSection = ({ score }) => {
     requestAnimationFrame(animate);
   }, [score]);
 
-  // Determine impact level & tips
+  // ✅ Determine impact level & tips
   useEffect(() => {
     if (score <= 30) {
       setLevel("Low Footprint 🌱");
@@ -60,11 +65,7 @@ const ResultsSection = ({ score }) => {
     <div className="flex flex-col items-center justify-center text-center p-6 space-y-8 m-25">
       {/* SVG Circular Progress */}
       <div className="relative w-48 h-48">
-        <svg
-          className="transform -rotate-90 w-48 h-48"
-          viewBox="0 0 200 200"
-        >
-          {/* Background circle */}
+        <svg className="transform -rotate-90 w-48 h-48" viewBox="0 0 200 200">
           <circle
             cx="100"
             cy="100"
@@ -73,7 +74,6 @@ const ResultsSection = ({ score }) => {
             strokeWidth="12"
             fill="transparent"
           />
-          {/* Progress circle (grows with score) */}
           <circle
             cx="100"
             cy="100"
@@ -86,21 +86,18 @@ const ResultsSection = ({ score }) => {
             strokeLinecap="round"
           />
         </svg>
-        {/* Score in center */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-3xl font-bold text-white">
-            {displayScore}
-          </span>
+          <span className="text-3xl font-bold text-white">{displayScore}</span>
         </div>
       </div>
 
       {/* Score Level */}
       <motion.h2
-        className={`text-3xl font-semibold ${color.split(" ")[1]}`} // text color
+        className={`text-3xl font-semibold ${color.split(" ")[1]}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        >
+      >
         {level}
       </motion.h2>
 
@@ -118,9 +115,9 @@ const ResultsSection = ({ score }) => {
           </motion.div>
         ))}
       </div>
-      {/* ActionPlan*/}
-      <ActionPlan/>
-      
+
+      {/* ActionPlan */}
+      <ActionPlan />
     </div>
   );
 };

@@ -23,11 +23,6 @@ const Navbar = () => {
             Quiz
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/contact" style={styles.link}>
-            Contact
-          </NavLink>
-        </li>
       </ul>
 
       <motion.div

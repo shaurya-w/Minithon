@@ -65,7 +65,8 @@ const Quiz = () => {
       </div>
 
       <div className="mt-8">
-        <Button onClick={handleSubmit} />
+        <Button onClick={handleSubmit} name="Submit" />
+
       </div>
     </section>
   );

@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Quiz from "./pages/Quiz";
-import Contact from "./pages/Contact";
 import ResultsSection from "./pages/ResultsSection";
 
 
@@ -19,7 +18,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/results" element={<ResultsSection score={score} />} />
       </Routes>
     </>

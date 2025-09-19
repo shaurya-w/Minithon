@@ -1,59 +1,3 @@
-/*import React from "react";
-import SplitText from "../components/SplitText";
-
-const About = () => (
-  <section id="about" style={{ ...styles.section }}>
-    <h1 className="text-5xl font-bold text-white">
-      <SplitText text="About Us" />
-    </h1>
-  </section>
-);
-export default About;
-const styles = {
-  section: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    color: "white",
-  },
-};
-
-
-
-import React from "react";
-import { motion } from "framer-motion";
-import SplitText from "../components/SplitText";
-
-const About = () => (
-  <section id="about" style={{ ...styles.section }}>
-    <motion.h1
-      className="text-5xl font-bold text-white self-start pl-8"
-      initial={{ x: "-100%", opacity: 0 }}  // start completely offscreen to the left
-      animate={{ x: 0, opacity: 1 }}       // animate to normal position
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <SplitText text="About Us" />
-    </motion.h1>
-  </section>
-);
-
-export default About;
-
-const styles = {
-  section: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start", // push content to top-left
-    flexDirection: "column",
-    color: "white",
-    paddingLeft: "2rem", // small padding for spacing
-  },
-};
-
-*/
 import React from "react";
 import { motion } from "framer-motion";
 import SplitText from "../components/SplitText";
@@ -76,7 +20,7 @@ const About = () => {
       </motion.h1>
 
       {/* Info Text */}
-      <div className="mt-8 max-w-3xl space-y-6">
+      <div className="max-w-3xl space-y-6">
         {paragraphs.map((p, i) => (
           <motion.p
             key={i}
@@ -99,6 +43,7 @@ const styles = {
   section: {
     marginTop: "30px", 
     height: "100vh",
+    width:"150vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-start",
