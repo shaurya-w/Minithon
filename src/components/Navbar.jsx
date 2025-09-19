@@ -10,8 +10,8 @@ const Navbar = () => {
       <ul style={styles.navList}>
         <li><a href="#home" style={styles.link}>Home</a></li>
         <li><a href="#about" style={styles.link}>About</a></li>
-        <li><a href="#services" style={styles.link}>Services</a></li>
-        <li><a href="#contact" style={styles.link}>Contact</a></li>
+        <li><a href="#faqs" style={styles.link}>FAQs</a></li>
+        <li><a href="#" style={styles.link}>Contact</a></li>
       </ul>
 
       <motion.div

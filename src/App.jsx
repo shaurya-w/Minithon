@@ -5,8 +5,12 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import ResultsSection from "./pages/ResultsSection";
+import ActionPlan from "./pages/ActionPlan";
+import { Bike, Lightbulb } from "lucide-react";
 
 const App = () => {
+   const score = 55;
   return (
     <>
       <Navbar />
@@ -27,6 +31,13 @@ const App = () => {
       <section id="contact" className="scroll-mt-16">
         <Contact />
       </section>
+
+      <div className="min-h-screen bg-[#0A192F] flex items-center justify-center">
+        <ResultsSection score={score} />
+      </div>
+
+      <ActionPlan/>
+      
     </>
   );
 };
