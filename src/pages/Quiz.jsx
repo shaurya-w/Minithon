@@ -1,10 +1,10 @@
-const About = () => (
+const Quiz= () => (
   <section
-    id="about"
+    id="Quiz"
     className="h-screen flex items-center justify-center text-white scroll-mt-16"
   >
-    <h1>About</h1>
+    <h1>Quiz</h1>
   </section>
 );
 
-export default About; 
+export default Quiz; 

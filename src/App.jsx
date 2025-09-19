@@ -1,9 +1,9 @@
 // App.js
-import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
+import About from "./pages/Quiz";
+import Quiz from "./pages/Quiz";
 import Contact from "./pages/Contact";
 import ResultsSection from "./pages/ResultsSection";
 import ActionPlan from "./pages/ActionPlan";
@@ -31,13 +31,6 @@ const App = () => {
       <section id="contact" className="scroll-mt-16">
         <Contact />
       </section>
-
-      <div className="min-h-screen bg-[#0A192F] flex items-center justify-center">
-        <ResultsSection score={score} />
-      </div>
-
-      <ActionPlan/>
-      
     </>
   );
 };
