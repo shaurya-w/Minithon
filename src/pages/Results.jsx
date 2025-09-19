@@ -1,9 +1,9 @@
 import React from "react";
 
-const Services = () => (
-  <section id="Services" style={{ ...styles.section }}>
-    <h1>Services</h1>
-    <p>Welcome to the Servicespage.</p>
+const Results = () => (
+  <section id="Results" style={{ ...styles.section }}>
+    <h1>Results</h1>
+    <p>Welcome to the Resultspage.</p>
   </section>
 );
 
@@ -18,4 +18,4 @@ const styles = {
   },
 };
 
-export default Services;
+export default Results;

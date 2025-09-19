@@ -1,25 +1,41 @@
-// Navbar.js
 import React from "react";
 import { motion, useScroll } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const { scrollYProgress } = useScroll(); 
+  const { scrollYProgress } = useScroll();
 
   return (
     <nav style={styles.navbar}>
       <ul style={styles.navList}>
-        <li><a href="#home" style={styles.link}>Home</a></li>
-        <li><a href="#about" style={styles.link}>About</a></li>
-        <li><a href="#services" style={styles.link}>Services</a></li>
-        <li><a href="#contact" style={styles.link}>Contact</a></li>
+        <li>
+          <NavLink to="/" style={styles.link}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about" style={styles.link}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/quiz" style={styles.link}>
+            Quiz
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact" style={styles.link}>
+            Contact
+          </NavLink>
+        </li>
       </ul>
 
       <motion.div
         style={{
-            ...styles.progressBar,
-            scaleX: scrollYProgress,
+          ...styles.progressBar,
+          scaleX: scrollYProgress,
         }}
-        />
+      />
     </nav>
   );
 };
@@ -48,8 +64,8 @@ const styles = {
   progressBar: {
     height: "2px",
     background: "linear-gradient(135deg, #a855f7, #9333ea)",
-    transformOrigin: "0%", 
+    transformOrigin: "0%",
   },
 };
 
-export default Navbar;  
+export default Navbar;
