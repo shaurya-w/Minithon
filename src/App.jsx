@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/Quiz";
 import Quiz from "./pages/Quiz";
 import Contact from "./pages/Contact";
+import ResultsSection from "./pages/ResultsSection";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/results" element={<ResultsSection />} />
       </Routes>
     </>
   );
